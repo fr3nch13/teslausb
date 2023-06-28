@@ -83,7 +83,9 @@ Given that the Pi contains sensitive information like your home wifi password an
 
 ### Troubleshooting
 
-* If everything seems to be working, but you still don't see the USB drive(s) either on your local machine, or in the car, check that you are indeed using a USB data cable, and not a charge-only cable. Also ensure you are plugged into the USB port on the Raspberry PI, and not the power port.
+More troubleshooting information in the [wiki](https://github.com/marcone/teslausb/wiki/Troubleshooting)
+
+* If everything seems to have installed correctly, but you still don't see the USB drive(s) either on your local machine, or in the car, check that you are indeed using a USB data cable, and not a charge-only cable. Also ensure you are plugged into the USB port on the Raspberry PI, and not the power port.
 * `ssh` to `pi@teslausb.local` (assuming Wifi came up, or your Pi is connected to your computer via USB) and look at the `/boot/teslausb-headless-setup.log`.
 * Try `sudo -i` and then run `/etc/rc.local`. The scripts are  fairly resilient to restarting and not re-running previous steps, and will tell you about progress/failure.
 * If Wifi didn't come up:
@@ -94,8 +96,6 @@ Given that the Pi contains sensitive information like your home wifi password an
 * Note: if you get an error about `read-only filesystem`, you may have to `sudo -i` and run `/root/bin/remountfs_rw`.
 * Try `date` to ensure the system clock is set correctly. If it is too far off, SSL/TLS Authentication will fail, preventing the installation from completing. You can set the date like `date -s "2 JAN 2022 15:04:05"`
 * Try `tail -f /boot/teslausb-headless-setup.log` to watch the logs during installation, which may shed some light on any errors occurring. Press `Ctrl-C` to stop watching logs.
-
-More troubleshooting information in the [wiki](https://github.com/marcone/teslausb/wiki/Troubleshooting)
 
 # Background information
 ## What happens under the covers
